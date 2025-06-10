@@ -7,6 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { cn } from "@/lib/utils"
+import Image from "next/image"
+import Link from "next/link"
 interface CompanionsListProps {
   title: string, 
   companions?: Companion[]
@@ -14,25 +17,42 @@ interface CompanionsListProps {
 }
 const CompanionsList = ({title, companions, classNames}: CompanionsListProps) => {
   return (
-    <article>
-      <h2>Recent Completed Sessions</h2>
+    <article className={cn('companion-list', classNames)}>
+      <h2 className="font-bold text-3xl">{title}</h2>
       <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Invoice</TableHead>
-            <TableHead>Status</TableHead> 
-            <TableHead>Method</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="text-lg w-2/3">Lessons</TableHead>
+            <TableHead className="text-lg">Subject</TableHead> 
+            <TableHead className="text-lg text-right">Duration</TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">INV001</TableCell>
-            <TableCell>Paid</TableCell>
-            <TableCell>Credit Card</TableCell>
-            <TableCell className="text-right">$250.00</TableCell>
-          </TableRow>
+          {companions?.map(({id, subject, name, topic, duration})=>(
+            <TableRow key={subject}>
+              <TableCell>
+                <Link href={`/companions/${id}`}>
+                <div className="flex items-center gap-2">
+                  <div className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden">
+                      <Image 
+                        src={`/icons/${subject}.svg`}
+                        alt={subject}
+                        width={35}
+                        height={35}/>
+                  </div>
+                </div>
+                  {name}
+                </Link>
+              </TableCell>
+              <TableCell>
+                <Link href={`/companions/${id}`}>{subject}</Link>
+              </TableCell>
+              <TableCell>
+                <Link href={`/companions/${id}`}>{subject}</Link>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </article>

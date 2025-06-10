@@ -15,7 +15,7 @@ const Page = () => {
             name= "Neura the Brainy Explorer"
             topic= "Neural network of the Brain"
             subject = "Science"
-            duration = {45}
+            duration = "45"
             color = "#E5D0FF"
           />
           <CompanionCard
@@ -23,7 +23,7 @@ const Page = () => {
             name= "Countsy the Number Wizard"
             topic= "Derivatives & Integrals"
             subject = "Maths"
-            duration = {30}
+            duration = "30"
             color = "#FFDA6E"
           />
           <CompanionCard
@@ -31,13 +31,13 @@ const Page = () => {
             name= "Verba the Vocabulary Builder"
             topic= "English Literature"
             subject = "Language"
-            duration = {30}
+            duration = "30"
             color = "#BDE7FF"
           />
       </section>
 
       <section className='home-section'>
-        <CompanionsList title = "Recently Completed Sessions" companions = {recentSessions} classNames= "w-2/3 max-lg:w-full"/>
+        <CompanionsList title = "Recently completed lessons" companions = {recentSessions} classNames= "w-2/3 max-lg:w-full"/>
         <CTA/>
       </section>
     </main>
