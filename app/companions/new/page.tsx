@@ -1,10 +1,14 @@
+import CompanionForm from '@/components/CompanionForm'
 import React from 'react'
 
 const NewCompanion = () => {
   return (
-    <div>
-      New Companion
-    </div>
+    <main className='min-lg:w-1/3 min-md:w-2/3 items-center justify-center'>
+      <article>
+        <h1>Companion Builder</h1>
+        <CompanionForm/>
+      </article>
+    </main>
   )
 }
 
